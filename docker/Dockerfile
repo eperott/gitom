@@ -10,7 +10,8 @@ RUN \
 
 COPY root /
 
-USER git
+ENV DEFAULT_BRANCH=master
+ENV PROJECT=project
 
 USER root
 EXPOSE 22

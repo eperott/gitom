@@ -19,7 +19,7 @@ cat /id_ecdsa.pub >> /home/git/.ssh/authorized_keys
 mkdir -p /git
 chown git:git /git
 if [ ! -e /git/"${PROJECT}".git ]; then
-  sudo -u git /git-init.sh
+  sudo --user=git --preserve-env=DEFAULT_BRANCH --preserve-env=PROJECT /git-init.sh
 fi
 
 exec /usr/sbin/sshd -D -e "$@"

@@ -2,7 +2,7 @@
 
 PROJECT=${PROJECT:-project}
 
-ssh-keygen -A
+ssh-keygen -A -f /hostkeys
 
 adduser -D -s /usr/bin/git-shell -u 2000 git
 sed -i -e "s/^git:!:/git:*:/" /etc/shadow

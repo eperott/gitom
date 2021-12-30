@@ -1,3 +1,7 @@
+all: docker-image helm-lint
+
+clean: helm-clean
+
 docker-image: docker-image-build docker-image-push
 
 docker-image-build:
@@ -14,3 +18,20 @@ docker-exec:
 
 docker-stop:
 	docker stop gitom
+
+helm/gitom/Chart.lock: helm/gitom/Chart.yaml
+	helm dependency update helm/gitom
+
+helm-update: helm/gitom/Chart.lock
+
+helm-clean:
+	rm -f helm/gitom/charts/* helm/gitom/Chart.lock
+
+helm-lint: helm/gitom/Chart.lock
+	helm lint helm/gitom
+
+helm-install: docker-image helm-lint
+	helm upgrade --install gitom helm/gitom -f test/test.yaml
+
+helm-delete:
+	helm delete gitom

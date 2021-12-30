@@ -1,0 +1,16 @@
+image:
+  tag: latest
+  pullPolicy: Always
+
+service:
+  main:
+    type: LoadBalancer
+    loadBalancerIP: 10.29.61.40
+
+env:
+  PROJECT: dojo
+  TZ: Europe/Stockholm
+
+persistence:
+  repo:
+    enabled: true

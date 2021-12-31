@@ -21,7 +21,11 @@ probes:
 persistence:
   repo:
     mountPath: /git
-
+  hostkeys:
+    enabled: true
+    type: secret
+    name: gitom-hostkeys
+    defaultMode: 0600
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "gitom.harcodedValues" . | fromYaml) -}}
 

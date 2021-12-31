@@ -2,8 +2,6 @@
 
 PROJECT=${PROJECT:-project}
 
-ssh-keygen -A -f /hostkeys
-
 adduser -D -s /usr/bin/git-shell -u 2000 git
 sed -i -e "s/^git:!:/git:*:/" /etc/shadow
 mkdir /home/git/.ssh
@@ -22,4 +20,4 @@ if [ ! -e /git/"${PROJECT}".git ]; then
   sudo --user=git --preserve-env=DEFAULT_BRANCH --preserve-env=PROJECT /git-init.sh
 fi
 
-exec /usr/sbin/sshd -D -e "$@"
+exec "$@"

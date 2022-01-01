@@ -33,5 +33,7 @@ helm-lint: helm/gitom/Chart.lock
 helm-install: docker-image helm-lint
 	helm upgrade --install gitom helm/gitom -f test/test.yaml
 
+# TODO: Push chart to repo
+
 helm-delete:
 	helm delete gitom

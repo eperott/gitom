@@ -1,5 +1,6 @@
 #!/bin/ash
 
+# TODO: Add support for multiple projects
 PROJECT=${PROJECT:-project}
 
 adduser -D -s /usr/bin/git-shell -u 2000 git
@@ -10,7 +11,7 @@ touch /home/git/.ssh/authorized_keys
 chmod 600 /home/git/.ssh/authorized_keys
 chown git:git -R /home/git/.ssh
 
-# TODO Remove this and the pub file!
+# TODO: Manage public user keys in a ConfigMap - for several users.
 echo -n "no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty " >> /home/git/.ssh/authorized_keys
 cat /id_ecdsa.pub >> /home/git/.ssh/authorized_keys
 

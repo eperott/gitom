@@ -1,5 +1,7 @@
 FROM alpine:3.15
 
+# TODO: Remove curl from final image.
+
 RUN \
   apk add --no-cache --no-progress \
     curl \

@@ -8,6 +8,9 @@ service:
     loadBalancerIP: 10.29.61.40
 
 git:
+  authorizedKeys:
+    - "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFsiJrc2zfVH0l4b9KJTxOUQ8RBgs25I1InhVUTULv1Jm8B0vdfnqQk90o1v/ff1nlm6TXWDAyKyO5oiqKZOi4UHgHH3ksRR96tFqJ/w7n5/d0j2bdGyTEOAE4I0uaiFW1+HYtvxVxyiPNMQA5B73qAJ2wktcan/QVbjEjVqhoXrgxSdQ== pelle@hex"
+    - "ssh-dss AAAAB3NzaC1kc3MAAACBAKoJjEX098KLrmdlFCQFo5VThvl6jzhbTWrfFlL6oyNkGwMzHaj5dEqmIkkTjEJSfnSMvtK0zEnsz4X1dEXHkHXXLVQYbwEufVr118HK60mveW2FYBfRmtAgzvSmRxCsVsrRtHK+6BGSov2efOGCj/Gs8hvRtOVX1mz17kHGP0NTAAAAFQDWDGxMc5drur8+dTnxt/6RJx7wvwAAAIBHDH1YkEBUD4nPKZB+rWxGnjZD5n6CFyiXezeap4T8rRHPiKOy3ycHKTq5WGGplTjMMsdvyC1gzd6mkayh/171bMvzsF59JgpbkcA6teawO3n9bgRQ4WrSvzkEjkpcWJNCH4MJYZGyyEFB7hHkVdDHdCL4Aq5/gwGXhIPtGhle8QAAAIA/qFilhLnvszW0rSahGCZ/z5AhulCDxu6cPusP8TzzpeqCFTG1vap4XEfRLv4eDUBfAh9rCipAnLNWHsAxdYjXl0ncchwm2zR3QXZjy9M9apsnVXn9c2Fbsb/Dj2jfxkupj1MmrcUK8ooHBNhlsTVUsKNIGjwuK9f+juCHEXutxg== pelle@hex"
   repositories:
     - dojo
     - proj1

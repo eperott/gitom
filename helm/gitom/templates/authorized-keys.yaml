@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "common.names.fullname" . }}-authorized-keys
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  authorized_keys: |
+    {{- range .Values.git.authorizedKeys }}
+    no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty {{ . }}
+    {{- end }}

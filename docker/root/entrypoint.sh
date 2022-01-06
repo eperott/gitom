@@ -7,10 +7,7 @@ chmod 700 /home/git/.ssh
 touch /home/git/.ssh/authorized_keys
 chmod 600 /home/git/.ssh/authorized_keys
 chown git:git -R /home/git/.ssh
-
-# TODO: Manage public user keys in a ConfigMap - for several users.
-echo -n "no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty " >> /home/git/.ssh/authorized_keys
-cat /id_ecdsa.pub >> /home/git/.ssh/authorized_keys
+cat /authorizedkeys/authorized_keys >> /home/git/.ssh/authorized_keys
 
 mkdir -p /git
 chown git:git /git

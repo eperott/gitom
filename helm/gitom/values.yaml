@@ -20,11 +20,12 @@ env:
   TZ: UTC
 
 git:
+  # List of public ssh keys which are authorized to access the repositories
+  authorizedKeys:
   # Name of default branch when initializing new repositories
   defaultBranch: master
   # List of git repositories to create
   repositories:
-    - project
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

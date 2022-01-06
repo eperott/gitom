@@ -31,6 +31,10 @@ persistence:
     type: secret
     name: {{ include "common.names.fullname" . }}-hostkeys
     defaultMode: 0600
+  authorizedkeys:
+    enabled: true
+    type: configMap
+    name: {{ include "common.names.fullname" . }}-authorized-keys
 
 service:
   main:

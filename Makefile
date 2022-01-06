@@ -5,13 +5,15 @@ clean: helm-clean
 docker-image: docker-image-build docker-image-push
 
 docker-image-build:
-	docker build --tag registry.guck.se/gitom docker/
+	docker build --tag registry.guck.se/gitom:0.1.0 docker/
+	docker tag registry.guck.se/gitom:0.1.0 registry.guck.se/gitom:latest
 
 docker-image-push:
-	docker push registry.guck.se/gitom
+	docker push registry.guck.se/gitom:0.1.0
+	docker push registry.guck.se/gitom:latest
 
 docker-run:
-	docker run --detach --rm --name=gitom -p 2222:22 registry.guck.se/gitom
+	docker run --detach --rm --name=gitom -p 2222:22 registry.guck.se/gitom:0.1.0
 
 docker-exec:
 	docker exec -it gitom ash

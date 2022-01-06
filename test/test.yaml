@@ -7,8 +7,17 @@ service:
     type: LoadBalancer
     loadBalancerIP: 10.29.61.40
 
+git:
+  repositories:
+    - dojo
+    - proj1
+    - proj2
+    - proj3
+    - proj4
+    - proj5
+    - proj6
+
 env:
-  PROJECT: dojo
   TZ: Europe/Stockholm
 
 persistence:

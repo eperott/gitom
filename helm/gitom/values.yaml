@@ -16,20 +16,21 @@ image:
 # -- environment variables. See more environment variables in the [gitom documentation](https://gitom.org/docs).
 # @default -- See below
 env:
-  # -- Set name of default git branch
-  DEFAULT_BRANCH: master
-  # -- Set name of git project
-  PROJECT: project
   # -- Set the container timezone
   TZ: UTC
+
+git:
+  # Name of default branch when initializing new repositories
+  defaultBranch: master
+  # List of git repositories to create
+  repositories:
+    - project
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
   main:
     ports:
-      http:
-        enabled: false
       ssh:
         enabled: true
         port: 22

@@ -6,10 +6,15 @@
 controller:
   type: statefulset
 
+env:
+  DEFAULT_BRANCH: {{ .Values.git.defaultBranch | default "master" | quote }}
+  REPOSITORIES: "{{- join " " .Values.git.repositories }}"
+
 ingress:
   main:
     enabled: false
 
+# TODO: Add support for probes
 probes:
   liveness:
     enabled: false
@@ -24,8 +29,15 @@ persistence:
   hostkeys:
     enabled: true
     type: secret
-    name: gitom-hostkeys
+    name: {{ include "common.names.fullname" . }}-hostkeys
     defaultMode: 0600
+
+service:
+  main:
+    ports:
+      http:
+        enabled: false
+
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "gitom.harcodedValues" . | fromYaml) -}}
 

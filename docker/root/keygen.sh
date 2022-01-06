@@ -1,8 +1,9 @@
 #!/bin/ash
 
-# TODO: Generate hostkeys ONLY if there are none.
-# TODO: Set proper name of hostkey secret.
+# TODO: Add kubernetes permissions to create and manage this secret
 
-ssh-keygen -A -f /hostkeys
+if ! kubectl get secret "${HOSTKEY_SECRET}"; then
+  ssh-keygen -A -f /hostkeys;
+  kubectl create secret generic "${HOSTKEY_SECRET}" --from-file=/hostkeys/etc/ssh/;
+fi
 
-kubectl create secret generic gitom-hostkeys --from-file=/hostkeys/etc/ssh/

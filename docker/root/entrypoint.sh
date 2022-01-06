@@ -1,8 +1,5 @@
 #!/bin/ash
 
-# TODO: Add support for multiple projects
-PROJECT=${PROJECT:-project}
-
 adduser -D -s /usr/bin/git-shell -u 2000 git
 sed -i -e "s/^git:!:/git:*:/" /etc/shadow
 mkdir /home/git/.ssh
@@ -17,8 +14,11 @@ cat /id_ecdsa.pub >> /home/git/.ssh/authorized_keys
 
 mkdir -p /git
 chown git:git /git
-if [ ! -e /git/"${PROJECT}".git ]; then
-  sudo --user=git --preserve-env=DEFAULT_BRANCH --preserve-env=PROJECT /git-init.sh
-fi
+for REPOSITORY in ${REPOSITORIES}; do
+  if [ ! -e /git/"${REPOSITORY}".git ]; then
+    echo "Setting up ${REPOSITORY}";
+    sudo --user=git --preserve-env=DEFAULT_BRANCH REPOSITORY="${REPOSITORY}" /git-init.sh;
+  fi
+done
 
 exec "$@"

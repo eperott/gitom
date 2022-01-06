@@ -20,4 +20,7 @@ spec:
         - name: hostkey-initializer
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: HOSTKEY_SECRET
+              value: {{ include "common.names.fullname" . }}-hostkeys
           command: ["sh", "-c", "/keygen.sh"]

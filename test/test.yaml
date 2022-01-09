@@ -5,7 +5,7 @@ image:
 service:
   main:
     type: LoadBalancer
-    loadBalancerIP: 10.29.61.40
+    loadBalancerIP: 10.29.61.41
 
 git:
   authorizedKeys:

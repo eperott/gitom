@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: registry.guck.se/gitom
   # -- image tag
-  tag: 0.1.0
+  tag: 0.2.0
   # -- image pull policy
   pullPolicy: IfNotPresent
 

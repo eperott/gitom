@@ -5,15 +5,15 @@ clean: helm-clean
 docker-image: docker-image-build docker-image-push
 
 docker-image-build:
-	docker build --tag registry.guck.se/gitom:0.1.0 docker/
-	docker tag registry.guck.se/gitom:0.1.0 registry.guck.se/gitom:latest
+	docker build --tag registry.guck.se/gitom:0.2.0 docker/
+	docker tag registry.guck.se/gitom:0.2.0 registry.guck.se/gitom:latest
 
 docker-image-push:
-	docker push registry.guck.se/gitom:0.1.0
+	docker push registry.guck.se/gitom:0.2.0
 	docker push registry.guck.se/gitom:latest
 
 docker-run:
-	docker run --detach --rm --name=gitom -p 2222:22 registry.guck.se/gitom:0.1.0
+	docker run --detach --rm --name=gitom -p 2222:22 registry.guck.se/gitom:0.2.0
 
 docker-exec:
 	docker exec -it gitom ash
@@ -31,6 +31,9 @@ helm-clean:
 
 helm-lint: helm/gitom/Chart.lock
 	helm lint helm/gitom
+
+helm-package: docker-image helm-lint
+	helm package helm/gitom
 
 helm-install: docker-image helm-lint
 	helm upgrade --install gitom helm/gitom -f test/test.yaml

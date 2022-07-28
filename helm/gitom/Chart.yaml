@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: 0.2.0
+appVersion: 0.3.0
 description: gitom helm package
 name: gitom
-version: 0.2.0
+version: 0.3.0
 kubeVersion: ">=1.16.0-0"
 keywords:
 - gitom
